@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Welcome to the Class Exercise Solution Sharing Platform</h2>
+<p>Select a class to view exercises and solutions:</p>
+<ul>
+    {% for class in classes %}
+    <li>
+        <a href="{{ url_for('class_details', class_id=class.id) }}">{{ class.name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

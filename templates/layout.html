@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Exercise Solution Sharing Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Class Exercise Solution Sharing Platform</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            {% if session['user_id'] %}
+                <a href="{{ url_for('login') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>© 2024 Class Exercise Solution Sharing Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
